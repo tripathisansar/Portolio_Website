@@ -24,7 +24,7 @@ export function Hero() {
       <div className="relative z-10 w-full max-w-[1400px]">
         <div className="flex items-center gap-3 mb-6 md:mb-8 font-mono text-[10px] md:text-[11px] uppercase tracking-widest2 text-frost-300/70">
           <span className="block w-8 h-px bg-frost-300/40" />
-          <Scramble text="A design + engineering studio" trigger="mount" duration={900} />
+          <Scramble text="A web design + development studio" trigger="mount" duration={900} />
         </div>
 
         <h1 className="font-display font-light text-frost-50 leading-[0.92] tracking-tightest text-balance text-[12vw] md:text-[8.4vw] lg:text-[7.2vw]">
@@ -33,15 +33,15 @@ export function Hero() {
             duration={900}
             startDelay={150}
             segments={[
-              { text: 'Premium digital products,\n' },
-              { text: 'engineered to feel inevitable.', className: 'text-frost-300/60' },
+              { text: 'Website and webapp\n' },
+              { text: 'design + development.', className: 'text-frost-300/60' },
             ]}
           />
         </h1>
 
         <div className="mt-8 md:mt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10">
           <p className="font-display text-frost-100 text-lg md:text-xl leading-snug max-w-xl">
-            Brand, web, and product design — built end to end with the engineering team that ships it.
+            From discovery to launch — designed and built end to end by one team.
           </p>
 
           <a
