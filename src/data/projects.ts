@@ -20,7 +20,7 @@ export const projects: Project[] = [
     year: '2026',
     category: 'Brand · Web · 3D',
     description:
-      'Defining a category. Built the visual identity and immersive marketing site for an AI agent security platform — landing page features an interactive 3D terrain that reacts to threat telemetry.',
+      'Identity and launch site for an AI agent security platform. The hero is an interactive 3D terrain that reacts to live threat telemetry.',
     tags: ['Branding', 'WebGL', 'Next.js', 'R3F'],
     metrics: [
       { label: 'Lighthouse', value: '98' },
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     year: '2025',
     category: 'Web · Editorial',
     description:
-      'Long-form, research-grade editorial system for a $4B AUM fund. Animated charts, scroll-driven narratives, secure investor portal — all custom, no off-the-shelf components.',
+      'Editorial site and investor portal for a $4B AUM fund. Custom chart engine, scroll-driven research notes, gated quarterly letters.',
     tags: ['Editorial', 'D3', 'Next.js', 'TypeScript'],
     metrics: [
       { label: 'AUM impact', value: '$140M' },
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     year: '2025',
     category: 'Brand · Web',
     description:
-      'A monumental portfolio site for a Pritzker-shortlisted studio. WebGL parallax of building cross-sections, GLSL-shaded material library, project filtering via AI semantic search.',
+      'Portfolio site for a Pritzker-shortlisted architecture studio. WebGL parallax through building cross-sections, a GLSL material library, semantic search across the project archive.',
     tags: ['WebGL', 'GLSL', 'Vector animation'],
     metrics: [
       { label: 'Press features', value: '17' },
@@ -68,7 +68,7 @@ export const projects: Project[] = [
     year: '2024',
     category: 'E-commerce · Brand',
     description:
-      'A Shopify Hydrogen storefront re-imagined as a magazine — animated transitions, AR product previews, subscription engine driving 38% of revenue within ninety days.',
+      'Shopify Hydrogen storefront built like an editorial magazine. AR previews on every SKU, subscription engine that took 38% of revenue inside ninety days.',
     tags: ['Hydrogen', 'GraphQL', 'AR'],
     metrics: [
       { label: 'Revenue', value: '+312%' },
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     year: '2024',
     category: 'Product · UX',
     description:
-      'Re-architected the dashboard experience for clinicians at twelve major US health systems. Reduced time-to-decision by 41% in user studies.',
+      'Redesigned the clinician dashboard now used at twelve US health systems. User studies clocked a 41% drop in time-to-decision.',
     tags: ['Design system', 'React', 'Charting'],
     metrics: [
       { label: 'Hospitals', value: '12' },

@@ -5,25 +5,25 @@ const steps = [
     n: '01',
     title: 'Strategy intensive',
     days: 'Week 1 — 2',
-    body: 'Two-week paid sprint. Stakeholder interviews, audit, positioning, narrative architecture. Ends in a written direction your team can act on whether or not we continue.',
+    body: 'Two-week paid sprint. Stakeholder interviews, audit, positioning, message hierarchy. Ends in a written direction your team can act on with or without us.',
   },
   {
     n: '02',
     title: 'Design system',
     days: 'Week 3 — 6',
-    body: 'Type, motion, photography direction, component library. Built in Figma against the live front-end so what you see is what we ship.',
+    body: 'Type, motion, photography direction, component library. Drawn in Figma alongside the live front-end — no surprises at handoff.',
   },
   {
     n: '03',
     title: 'Build',
     days: 'Week 6 — 14',
-    body: 'Production-grade code from day one — no throwaway prototypes. Weekly demos, async Slack standups, full ownership of the front-end repo.',
+    body: 'Production code from week one — no throwaway prototypes. Weekly demos, async Slack standups, you own the repo from commit one.',
   },
   {
     n: '04',
-    title: 'Launch & beyond',
+    title: 'Launch + after',
     days: 'Week 14+',
-    body: 'Performance audits, A/B test instrumentation, analytics integration. Optional retainer for ongoing creative direction.',
+    body: 'Performance audits, A/B instrumentation, analytics wiring. Optional retainer if you want us close after.',
   },
 ]
 

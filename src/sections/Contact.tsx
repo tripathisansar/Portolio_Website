@@ -12,10 +12,10 @@ export function Contact() {
           <div className="md:col-span-7">
             <span className="label-tag">/ Contact</span>
             <h2 className="mt-5 font-display font-light text-frost-50 text-[12vw] md:text-[6.5vw] leading-[0.9] tracking-tightest">
-              <Scramble text={"Let's build\nsomething inevitable."} duration={1100} />
+              <Scramble text={"Tell us what\nyou're building."} duration={1100} />
             </h2>
             <p className="mt-8 text-frost-100/85 leading-relaxed max-w-xl">
-              Tell us who you are, what you&apos;re building, and the stakes. Every inquiry gets a personal response within forty-eight hours.
+              A few sentences on who you are and what you&apos;re building is enough to start. Every note gets a personal reply within forty-eight hours.
             </p>
 
             <div className="mt-12 space-y-6">
@@ -42,7 +42,7 @@ export function Contact() {
             <Field label="Company" name="company" />
             <Field label="Email" name="email" type="email" />
             <Field label="Budget" name="budget" />
-            <Field label="Tell me about your project" name="brief" textarea />
+            <Field label="Tell us about the project" name="brief" textarea />
 
             <Magnetic strength={0.3} radius={1.4} block className="mt-2">
               <button
@@ -53,7 +53,7 @@ export function Contact() {
               </button>
             </Magnetic>
             <p className="font-mono text-[10px] uppercase tracking-widest2 text-frost-300/40 leading-relaxed">
-              Or email directly. Either is fine. Inquiries reviewed personally.
+              Email works too. Either way, you hear back from one of us — not a form.
             </p>
           </form>
         </div>
@@ -62,7 +62,7 @@ export function Contact() {
       <footer className="mt-16 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 text-frost-300/60 font-mono text-[10px] uppercase tracking-widest2">
         <div>
           <div className="text-frost-100">Aurora Studio</div>
-          <div className="mt-1">© 2026 · Crafted in Kathmandu &amp; Berlin</div>
+          <div className="mt-1">© 2026 · Made in Kathmandu &amp; Berlin</div>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           <a href="#" className="hover:text-frost-50">Read.cv</a>
