@@ -97,6 +97,7 @@ export function Mountain({ size = 70, segments = 360, heightScale = 11 }: Mounta
       uGlowColor: { value: new THREE.Color('#86d4ff') },
       uGlowRadius: { value: 0.8 },
       uGlowSoftness: { value: 1.85 },
+      uGlowIntensity: { value: 1 },
     }),
     [trail],
   )
@@ -106,6 +107,7 @@ export function Mountain({ size = 70, segments = 360, heightScale = 11 }: Mounta
     baseColor: '#7da3d4',
     baseOpacity: { value: 0.05, min: 0, max: 1, step: 0.01 },
     glowColor: '#86d4ff',
+    glowIntensity: { value: 1, min: 0, max: 3, step: 0.05 },
     glowRadius: { value: 0.8, min: 0.2, max: 15, step: 0.1 },
     glowSoftness: { value: 1.85, min: 0.2, max: 4, step: 0.05 },
     trailLifetime: { value: 0.9, min: 0.2, max: 6, step: 0.1 },
@@ -207,12 +209,14 @@ export function Mountain({ size = 70, segments = 360, heightScale = 11 }: Mounta
 
       shader.fragmentShader =
         `uniform vec3 uGlowColor;
+         uniform float uGlowIntensity;
          varying float vGlow;\n` +
         shader.fragmentShader.replace(
           'gl_FragColor = vec4( diffuseColor.rgb, alpha );',
-          `vec3 _col = mix(diffuseColor.rgb, uGlowColor, vGlow);
-           _col += vGlow * vGlow * vec3(0.35, 0.55, 0.78);
-           float _a = alpha + vGlow * 0.55;
+          `float _g = clamp(vGlow * uGlowIntensity, 0.0, 1.0);
+           vec3 _col = mix(diffuseColor.rgb, uGlowColor, _g);
+           _col += vGlow * vGlow * uGlowIntensity * vec3(0.35, 0.55, 0.78);
+           float _a = alpha + vGlow * 0.55 * uGlowIntensity;
            gl_FragColor = vec4(_col, _a);`,
         )
     }
@@ -228,7 +232,8 @@ export function Mountain({ size = 70, segments = 360, heightScale = 11 }: Mounta
     trailUniforms.uGlowColor.value.set(wire.glowColor)
     trailUniforms.uGlowRadius.value = wire.glowRadius
     trailUniforms.uGlowSoftness.value = wire.glowSoftness
-  }, [wire.glowColor, wire.glowRadius, wire.glowSoftness, trailUniforms])
+    trailUniforms.uGlowIntensity.value = wire.glowIntensity
+  }, [wire.glowColor, wire.glowRadius, wire.glowSoftness, wire.glowIntensity, trailUniforms])
 
   useEffect(() => {
     const mat = lineSegments.material as LineMaterial & { linewidth: number }
