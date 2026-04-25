@@ -1,39 +1,57 @@
 import { Scramble } from '../components/Scramble'
+import { RevealWords } from '../components/RevealWords'
 
 export function Hero() {
   return (
-    <section id="top" className="relative h-screen w-full flex items-center px-6 md:px-10">
+    <section
+      id="top"
+      className="relative h-screen w-full flex flex-col justify-end px-6 md:px-10 pb-24 md:pb-28"
+    >
       <div className="absolute top-24 md:top-28 left-6 md:left-10 z-10">
         <div className="space-y-1.5">
           <span className="label-tag block w-fit">Aurora · Studio</span>
-          <span className="label-tag block w-fit">2026 Showcase</span>
+          <span className="label-tag block w-fit">Vol. 01 · 2026</span>
         </div>
       </div>
 
       <div className="absolute top-24 md:top-28 right-6 md:right-10 z-10 text-right">
-        <div className="space-y-1.5 flex flex-col items-end">
-          <span className="label-tag w-fit">Premium Web Design & Development</span>
-          <span className="label-tag w-fit">3D · WebGL · Brand</span>
-          <span className="label-tag w-fit">Available · Q3 2026</span>
-        </div>
+        <span className="label-tag inline-flex items-center gap-2">
+          <span className="block w-1.5 h-1.5 rounded-full bg-glacier-400 animate-pulse-slow" />
+          Available · Q3 2026
+        </span>
       </div>
 
-      <div className="relative z-10 w-full">
-        <h1 className="font-display font-light text-frost-50 leading-[0.88] tracking-tightest text-balance text-[14vw] md:text-[12vw] lg:text-[11vw]">
-          <Scramble text="Aurora" trigger="mount" duration={1100} />
-        </h1>
-        <div className="mt-6 md:mt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div className="bg-ink-950/70 backdrop-blur-sm border border-frost-300/15 px-4 py-3 max-w-md">
-            <p className="text-frost-100 font-display text-base md:text-lg leading-snug">
-              Premium web design & development<br />for ambitious brands and operators.
-            </p>
-          </div>
+      <div className="relative z-10 w-full max-w-[1400px]">
+        <div className="flex items-center gap-3 mb-6 md:mb-8 font-mono text-[10px] md:text-[11px] uppercase tracking-widest2 text-frost-300/70">
+          <span className="block w-8 h-px bg-frost-300/40" />
+          <Scramble text="A design + engineering studio" trigger="mount" duration={900} />
+        </div>
 
-          <div className="flex items-center gap-3 text-frost-300 font-mono text-[11px] uppercase tracking-widest2">
-            <span className="w-8 h-px bg-frost-300/40" />
-            <span>Scroll</span>
+        <h1 className="font-display font-light text-frost-50 leading-[0.92] tracking-tightest text-balance text-[12vw] md:text-[8.4vw] lg:text-[7.2vw]">
+          <RevealWords
+            wordDelay={45}
+            duration={900}
+            startDelay={150}
+            segments={[
+              { text: 'Premium digital products,\n' },
+              { text: 'engineered to feel inevitable.', className: 'text-frost-300/60' },
+            ]}
+          />
+        </h1>
+
+        <div className="mt-8 md:mt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10">
+          <p className="font-display text-frost-100 text-lg md:text-xl leading-snug max-w-xl">
+            Brand, web, and product design — built end to end with the engineering team that ships it.
+          </p>
+
+          <a
+            href="#work"
+            className="group flex items-center gap-3 font-mono text-[11px] uppercase tracking-widest2 text-frost-300 hover:text-frost-50 transition-colors w-fit md:self-end"
+          >
+            <span className="block w-8 h-px bg-frost-300/40 group-hover:bg-frost-50 group-hover:w-12 transition-all" />
+            Selected work
             <span className="block w-1 h-1 rounded-full bg-frost-100 animate-pulse-slow" />
-          </div>
+          </a>
         </div>
       </div>
 

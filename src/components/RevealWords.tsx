@@ -64,7 +64,10 @@ export function RevealWords({
     return (
       <span key={segIdx} className={seg.className}>
         {tokens.map((tok, i) => {
-          if (/^\s+$/.test(tok)) return <span key={i}>{tok}</span>
+          if (/^\s+$/.test(tok)) {
+            if (tok.includes('\n')) return <br key={i} />
+            return <span key={i}>{tok}</span>
+          }
           if (tok.length === 0) return null
           const idx = wordIndex++
           const delay = startDelay + idx * wordDelay
