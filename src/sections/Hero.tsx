@@ -27,14 +27,14 @@ export function Hero() {
           <Scramble text="A web design + development studio" trigger="mount" duration={900} />
         </div>
 
-        <h1 className="font-display font-light text-frost-50 leading-[0.92] tracking-tightest text-balance text-[12vw] md:text-[8.4vw] lg:text-[7.2vw]">
+        <h1 className="font-display font-light text-frost-50 leading-[1.02] tracking-tightest text-balance text-[12vw] md:text-[8.4vw] lg:text-[7.2vw]">
           <RevealWords
             wordDelay={45}
             duration={900}
             startDelay={150}
             segments={[
-              { text: 'Website and webapp\n' },
-              { text: 'design + development.', className: 'text-frost-300/60' },
+              { text: 'End-to-end web design\n' },
+              { text: '+ development.', className: 'text-frost-300/60' },
             ]}
           />
         </h1>
