@@ -17,7 +17,7 @@ export function Work() {
           </h2>
         </div>
         <div className="hidden md:block text-right">
-          <span className="font-mono text-[10px] uppercase tracking-widest2 text-frost-300/60">2024 — 2026 · Premium clients only</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest2 text-frost-300/60">2024 — 2026 · Five engagements</span>
         </div>
       </div>
 
@@ -107,7 +107,7 @@ export function Work() {
           </div>
           <div>
             <p className="text-frost-100/80 leading-relaxed">
-              Engagements begin with a paid two-week strategy intensive. If our work clearly maps onto yours, get in touch — we respond within forty-eight hours.
+              Engagements start with a paid two-week strategy intensive. If our work looks like yours, send a note — we read every one and reply within forty-eight hours.
             </p>
             <Magnetic strength={0.45} radius={2.2} className="mt-6">
               <a

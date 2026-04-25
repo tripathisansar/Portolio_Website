@@ -13,9 +13,9 @@ export function Manifesto() {
             wordDelay={28}
             duration={820}
             segments={[
-              { text: 'The internet is full of templated work. ' },
-              { text: "Our clients aren't templated brands. ", className: 'text-frost-300/70' },
-              { text: 'Every site we ship is engineered to feel inevitable — visually authoritative, technically pristine, load-tested for the boardroom.' },
+              { text: 'Most websites are interchangeable. ' },
+              { text: 'The companies we work with are not. ', className: 'text-frost-300/70' },
+              { text: 'The site is the first thing a stranger sees — we build it accordingly.' },
             ]}
           />
         </p>
@@ -24,8 +24,8 @@ export function Manifesto() {
       <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 border-t border-frost-300/10 pt-10">
         {[
           { k: '11', v: 'years shipping' },
-          { k: '47', v: 'engagements' },
-          { k: '0', v: 'templates shipped' },
+          { k: '47', v: 'sites shipped' },
+          { k: '0', v: 'subcontractors' },
           { k: '98', v: 'avg. lighthouse' },
         ].map((m) => (
           <div key={m.v}>

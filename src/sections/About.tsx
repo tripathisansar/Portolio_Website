@@ -19,14 +19,14 @@ export function About() {
             <RevealWords
               wordDelay={32}
               duration={780}
-              text="Aurora is a design and engineering studio shipping premium digital products for category-defining brands."
+              text="Aurora is a design and engineering studio. We build the websites companies use to introduce themselves."
             />
           </p>
           <p className="text-frost-100/80 leading-relaxed">
-            The studio works at the seam between visual systems and the code that animates them. Brand, interface, and motion — held to one standard, built end to end.
+            Designers and engineers in the same studio. Brand, interface, motion — held to one standard, with no handoff to disappear into.
           </p>
           <p className="text-frost-100/80 leading-relaxed">
-            No account managers. No sub-agencies. Direct collaboration from kickoff to launch.
+            No account managers. No subcontractors. You talk to the people drawing the pixels and writing the shaders.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export function About() {
 
           <blockquote className="border-l-2 border-frost-300/30 pl-5 py-1">
             <p className="font-display text-frost-100 text-xl md:text-2xl leading-snug font-light italic">
-              &ldquo;Aurora reset what kind of company we look like in the room. Inbound now closes deals we used to chase for months.&rdquo;
+              &ldquo;Aurora made us look like the company we already were. Inbound now closes deals we used to chase for months.&rdquo;
             </p>
             <footer className="mt-3 font-mono text-[10px] uppercase tracking-widest2 text-frost-300/60">
               — CEO, Series-B AI infra
