@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { projects } from '../data/projects'
 import { FrameMarkers } from '../components/FrameMarkers'
 import { Scramble } from '../components/Scramble'
@@ -30,6 +31,11 @@ export function Work() {
               onMouseLeave={() => setActive(null)}
               className="group relative grid grid-cols-12 gap-4 py-6 md:py-8 cursor-pointer-link transition-colors"
             >
+              <Link
+                to={`/work/${p.id}`}
+                aria-label={`Open ${p.title} case study`}
+                className="absolute inset-0 z-30"
+              />
               <div
                 className="absolute inset-y-0 -inset-x-5 md:-inset-x-8 transition-opacity duration-500 pointer-events-none"
                 style={{
