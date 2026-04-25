@@ -49,26 +49,6 @@ export function About() {
               <div className="mt-2 font-display text-frost-50 text-lg">React · R3F · GLSL · Next · Rust</div>
             </div>
           </div>
-
-          <div>
-            <div className="font-mono text-[10px] uppercase tracking-widest2 text-frost-300/50 mb-4">Selected clients</div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-frost-300/10 border border-frost-300/10">
-              {['Guardbase', 'Meridian Capital', 'Altruvian', 'Orbital Foods', 'Helix Health', 'NeuralPath'].map((c) => (
-                <div key={c} className="bg-ink-900/70 px-4 py-5 font-display text-frost-100 text-sm md:text-base text-center tracking-tight">
-                  {c}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <blockquote className="border-l-2 border-frost-300/30 pl-5 py-1">
-            <p className="font-display text-frost-100 text-xl md:text-2xl leading-snug font-light italic">
-              &ldquo;Aurora made us look like the company we already were. Inbound now closes deals we used to chase for months.&rdquo;
-            </p>
-            <footer className="mt-3 font-mono text-[10px] uppercase tracking-widest2 text-frost-300/60">
-              — CEO, Series-B AI infra
-            </footer>
-          </blockquote>
         </div>
       </div>
     </section>
