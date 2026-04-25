@@ -72,11 +72,15 @@ export function RevealWords({
           const idx = wordIndex++
           const delay = startDelay + idx * wordDelay
           return (
-            <span key={i} className="inline-block overflow-hidden align-baseline">
+            <span
+              key={i}
+              className="inline-block overflow-hidden align-baseline"
+              style={{ paddingBottom: '0.3em', marginBottom: '-0.3em' }}
+            >
               <span
                 className="inline-block will-change-transform"
                 style={{
-                  transform: visible ? 'translateY(0)' : 'translateY(110%)',
+                  transform: visible ? 'translateY(0)' : 'translateY(150%)',
                   opacity: visible ? 1 : 0,
                   transition: `transform ${duration}ms cubic-bezier(0.22,1,0.36,1) ${delay}ms, opacity ${duration}ms ease ${delay}ms`,
                 }}
