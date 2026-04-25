@@ -108,7 +108,7 @@ export function Mountain({ size = 70, segments = 360, heightScale = 11 }: Mounta
     baseOpacity: { value: 0.01, min: 0, max: 1, step: 0.01 },
     glowColor: '#86d4ff',
     glowIntensity: { value: 0.4, min: 0, max: 3, step: 0.05 },
-    glowRadius: { value: 0.6, min: 0.2, max: 15, step: 0.1 },
+    glowRadius: { value: 3.9, min: 0.2, max: 15, step: 0.1 },
     glowSoftness: { value: 1.85, min: 0.2, max: 4, step: 0.05 },
     trailLifetime: { value: 0.9, min: 0.2, max: 6, step: 0.1 },
     trailSpacing: { value: 0.15, min: 0.05, max: 3, step: 0.05 },
