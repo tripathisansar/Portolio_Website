@@ -17,7 +17,7 @@ export function Work() {
           </h2>
         </div>
         <div className="hidden md:block text-right">
-          <span className="font-mono text-[10px] uppercase tracking-widest2 text-frost-300/60">2024 — 2026 · Five engagements</span>
+          <span className="font-mono text-[10px] uppercase tracking-widest2 text-frost-300/60">2024 — 2026 · Three engagements</span>
         </div>
       </div>
 
