@@ -4,6 +4,7 @@ import { Leva } from 'leva'
 import { Scene } from './scene/Scene'
 import { DevTools } from './components/DevTools'
 import { Nav } from './components/Nav'
+import { StatusTicker } from './components/StatusTicker'
 import { Hero } from './sections/Hero'
 import { Manifesto } from './sections/Manifesto'
 import { Work } from './sections/Work'
@@ -45,7 +46,7 @@ function App() {
 
       <div className="relative z-10">
         <Nav />
-        <main>
+        <main className="pb-7">
           <Hero />
           <Manifesto />
           <Work />
@@ -55,6 +56,8 @@ function App() {
           <Contact />
         </main>
       </div>
+
+      <StatusTicker />
     </div>
   )
 }

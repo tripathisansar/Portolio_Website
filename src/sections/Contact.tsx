@@ -1,4 +1,5 @@
 import { FrameMarkers } from '../components/FrameMarkers'
+import { Scramble } from '../components/Scramble'
 
 export function Contact() {
   return (
@@ -10,7 +11,7 @@ export function Contact() {
           <div className="md:col-span-7">
             <span className="label-tag">/ Contact</span>
             <h2 className="mt-5 font-display font-light text-frost-50 text-[12vw] md:text-[6.5vw] leading-[0.9] tracking-tightest">
-              Let&apos;s build<br />something inevitable.
+              <Scramble text={"Let's build\nsomething inevitable."} duration={1100} />
             </h2>
             <p className="mt-8 text-frost-100/85 leading-relaxed max-w-xl">
               Tell us who you are, what you&apos;re building, and the stakes. Every inquiry gets a personal response within forty-eight hours.

@@ -1,3 +1,5 @@
+import { Scramble } from '../components/Scramble'
+
 export function About() {
   return (
     <section id="about" className="relative py-24 md:py-32 px-6 md:px-10">
@@ -5,7 +7,7 @@ export function About() {
         <div>
           <span className="label-tag">/ Studio</span>
           <h2 className="mt-4 font-display font-light text-frost-50 text-[10vw] md:text-[5.2vw] leading-[0.95] tracking-tightest">
-            A studio with<br />a point of view.
+            <Scramble text={'A studio with\na point of view.'} duration={1000} />
           </h2>
         </div>
       </div>

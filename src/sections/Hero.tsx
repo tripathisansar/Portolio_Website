@@ -1,3 +1,5 @@
+import { Scramble } from '../components/Scramble'
+
 export function Hero() {
   return (
     <section id="top" className="relative h-screen w-full flex items-center px-6 md:px-10">
@@ -18,7 +20,7 @@ export function Hero() {
 
       <div className="relative z-10 w-full">
         <h1 className="font-display font-light text-frost-50 leading-[0.88] tracking-tightest text-balance text-[14vw] md:text-[12vw] lg:text-[11vw]">
-          Aurora
+          <Scramble text="Aurora" trigger="mount" duration={1100} />
         </h1>
         <div className="mt-6 md:mt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="bg-ink-950/70 backdrop-blur-sm border border-frost-300/15 px-4 py-3 max-w-md">

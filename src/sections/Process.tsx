@@ -1,3 +1,5 @@
+import { Scramble } from '../components/Scramble'
+
 const steps = [
   {
     n: '01',
@@ -32,7 +34,7 @@ export function Process() {
         <div>
           <span className="label-tag">/ Process</span>
           <h2 className="mt-4 font-display font-light text-frost-50 text-[10vw] md:text-[5.2vw] leading-[0.95] tracking-tightest">
-            How we work.
+            <Scramble text="How we work." duration={900} />
           </h2>
         </div>
         <span className="hidden md:inline-block label-tag">Linear · Notion · Slack · Figma</span>
