@@ -1,4 +1,5 @@
 import { Scramble } from '../components/Scramble'
+import { RevealWords } from '../components/RevealWords'
 
 export function About() {
   return (
@@ -15,7 +16,11 @@ export function About() {
       <div className="grid md:grid-cols-12 gap-8 md:gap-16">
         <div className="md:col-span-5 space-y-6">
           <p className="font-display text-frost-50 text-2xl md:text-3xl leading-snug font-light tracking-tight">
-            Aurora is a design and engineering studio shipping premium digital products for category-defining brands.
+            <RevealWords
+              wordDelay={32}
+              duration={780}
+              text="Aurora is a design and engineering studio shipping premium digital products for category-defining brands."
+            />
           </p>
           <p className="text-frost-100/80 leading-relaxed">
             The studio works at the seam between visual systems and the code that animates them. Brand, interface, and motion — held to one standard, built end to end.

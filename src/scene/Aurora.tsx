@@ -2,6 +2,7 @@ import { useEffect, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useControls, folder } from 'leva'
 import * as THREE from 'three'
+import { mouseState } from './mouseState'
 
 const VERT = /* glsl */ `
   varying vec2 vUv;
@@ -28,6 +29,8 @@ const FRAG = /* glsl */ `
   uniform float uRayContrast;
   uniform float uBottomFade;
   uniform float uTopFade;
+  uniform vec2  uMouse;
+  uniform float uMouseStrength;
   varying vec2 vUv;
 
   float hash(vec2 p) {
@@ -59,12 +62,17 @@ const FRAG = /* glsl */ `
     float x = vUv.x;
     float y = vUv.y;
 
+    // Mouse influence: gaussian "swell" centered on cursor x, biased by y
+    float mouseX = uMouse.x * 0.5 + 0.5;
+    float mouseDx = x - mouseX;
+    float mouseProx = exp(-(mouseDx * mouseDx) * 18.0);
+
     // Primary curtain centerline
     float wave =
         sin(x * 6.2831853 * uWaveFreq + t * 0.9) * 0.55
       + sin(x * 14.7 + t * 0.4) * 0.30
       + (fbm(vec2(x * 3.0, t * 0.18)) - 0.5) * 1.1;
-    float center = uBandY + wave * uWaveAmp;
+    float center = uBandY + wave * uWaveAmp + mouseProx * uMouse.y * 0.06 * uMouseStrength;
 
     float dy = (y - center);
     float wUp = uBandHeight * 1.6;
@@ -125,6 +133,9 @@ const FRAG = /* glsl */ `
     float vTop = smoothstep(1.0, 1.0 - max(uTopFade, 0.0001), y);
     float coverage = total * hEdge * vBottom * vTop;
 
+    // Local brightness bump under cursor
+    coverage *= 1.0 + mouseProx * 0.45 * uMouseStrength;
+
     vec3 outCol = col * uIntensity;
     float alpha = clamp(coverage, 0.0, 1.0);
 
@@ -178,6 +189,8 @@ export function Aurora() {
       uRayContrast: { value: 2.7 },
       uBottomFade: { value: 0.35 },
       uTopFade: { value: 0.05 },
+      uMouse: { value: new THREE.Vector2(0, 0) },
+      uMouseStrength: { value: 1 },
     }
     return new THREE.ShaderMaterial({
       uniforms,
@@ -223,6 +236,10 @@ export function Aurora() {
 
   useFrame((_, dt) => {
     u.uTime.value += dt * ctrl.speed
+    const m = u.uMouse.value as THREE.Vector2
+    const lerp = 1 - Math.pow(0.001, dt)
+    m.x += (mouseState.x - m.x) * lerp
+    m.y += (mouseState.y - m.y) * lerp
   })
 
   useEffect(() => () => geometry.dispose(), [geometry])

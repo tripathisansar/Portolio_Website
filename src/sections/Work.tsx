@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { projects } from '../data/projects'
 import { FrameMarkers } from '../components/FrameMarkers'
 import { Scramble } from '../components/Scramble'
+import { Magnetic } from '../components/Magnetic'
 
 export function Work() {
   const [active, setActive] = useState<string | null>(null)
@@ -108,12 +109,14 @@ export function Work() {
             <p className="text-frost-100/80 leading-relaxed">
               Engagements begin with a paid two-week strategy intensive. If our work clearly maps onto yours, get in touch — we respond within forty-eight hours.
             </p>
-            <a
-              href="#contact"
-              className="mt-6 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest2 border border-frost-100/40 text-frost-50 px-4 py-2.5 hover:bg-frost-50 hover:text-ink-950 transition-colors"
-            >
-              Start the conversation <span>↗</span>
-            </a>
+            <Magnetic strength={0.45} radius={2.2} className="mt-6">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest2 border border-frost-100/40 text-frost-50 px-4 py-2.5 hover:bg-frost-50 hover:text-ink-950 transition-colors"
+              >
+                Start the conversation <span>↗</span>
+              </a>
+            </Magnetic>
           </div>
         </div>
       </div>

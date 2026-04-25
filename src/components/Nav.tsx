@@ -1,3 +1,5 @@
+import { Magnetic } from './Magnetic'
+
 export function Nav() {
   const links = [
     { href: '#work', label: 'Work' },
@@ -22,12 +24,14 @@ export function Nav() {
           ))}
         </nav>
 
-        <a
-          href="#contact"
-          className="font-mono text-[11px] uppercase tracking-widest2 border border-frost-100/40 px-3 py-1.5 hover:bg-frost-50 hover:text-ink-950 transition-colors"
-        >
-          Book a call ↗
-        </a>
+        <Magnetic strength={0.4} radius={2}>
+          <a
+            href="#contact"
+            className="font-mono text-[11px] uppercase tracking-widest2 border border-frost-100/40 px-3 py-1.5 hover:bg-frost-50 hover:text-ink-950 transition-colors"
+          >
+            Book a call ↗
+          </a>
+        </Magnetic>
       </div>
     </header>
   )

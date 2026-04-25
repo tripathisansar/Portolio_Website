@@ -1,5 +1,6 @@
 import { FrameMarkers } from '../components/FrameMarkers'
 import { Scramble } from '../components/Scramble'
+import { Magnetic } from '../components/Magnetic'
 
 export function Contact() {
   return (
@@ -43,12 +44,14 @@ export function Contact() {
             <Field label="Budget" name="budget" />
             <Field label="Tell me about your project" name="brief" textarea />
 
-            <button
-              type="submit"
-              className="w-full mt-2 font-mono text-[11px] uppercase tracking-widest2 border border-frost-100/40 text-frost-50 px-4 py-3.5 hover:bg-frost-50 hover:text-ink-950 transition-colors"
-            >
-              Send inquiry ↗
-            </button>
+            <Magnetic strength={0.3} radius={1.4} block className="mt-2">
+              <button
+                type="submit"
+                className="w-full font-mono text-[11px] uppercase tracking-widest2 border border-frost-100/40 text-frost-50 px-4 py-3.5 hover:bg-frost-50 hover:text-ink-950 transition-colors"
+              >
+                Send inquiry ↗
+              </button>
+            </Magnetic>
             <p className="font-mono text-[10px] uppercase tracking-widest2 text-frost-300/40 leading-relaxed">
               Or email directly. Either is fine. Inquiries reviewed personally.
             </p>
