@@ -33,8 +33,8 @@ export function Hero() {
             duration={900}
             startDelay={150}
             segments={[
-              { text: 'Brand systems and the\n' },
-              { text: 'sites they live on.', className: 'text-frost-300/60' },
+              { text: 'End-to-end web design\n' },
+              { text: '+ development.', className: 'text-frost-300/60' },
             ]}
           />
         </h1>
