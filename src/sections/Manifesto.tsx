@@ -1,3 +1,5 @@
+import { RevealWords } from '../components/RevealWords'
+
 export function Manifesto() {
   return (
     <section className="relative py-32 md:py-44 px-6 md:px-10">
@@ -7,7 +9,15 @@ export function Manifesto() {
 
       <div className="max-w-5xl">
         <p className="font-display font-light text-frost-50 leading-[1.05] tracking-tight text-balance text-[6vw] md:text-[3.6vw] lg:text-[3vw]">
-          The internet is full of templated work. <span className="text-frost-300/70">Our clients aren&apos;t templated brands.</span> Every site we ship is engineered to feel inevitable — visually authoritative, technically pristine, load-tested for the boardroom.
+          <RevealWords
+            wordDelay={28}
+            duration={820}
+            segments={[
+              { text: 'The internet is full of templated work. ' },
+              { text: "Our clients aren't templated brands. ", className: 'text-frost-300/70' },
+              { text: 'Every site we ship is engineered to feel inevitable — visually authoritative, technically pristine, load-tested for the boardroom.' },
+            ]}
+          />
         </p>
       </div>
 
