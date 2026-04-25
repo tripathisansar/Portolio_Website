@@ -1,4 +1,5 @@
 import { services } from '../data/services'
+import { Scramble } from '../components/Scramble'
 
 export function Services() {
   return (
@@ -7,7 +8,7 @@ export function Services() {
         <div>
           <span className="label-tag">/ Services</span>
           <h2 className="mt-4 font-display font-light text-frost-50 text-[10vw] md:text-[5.2vw] leading-[0.95] tracking-tightest">
-            Capabilities.
+            <Scramble text="Capabilities." duration={900} />
           </h2>
         </div>
       </div>
