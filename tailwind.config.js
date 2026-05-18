@@ -29,6 +29,8 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        fraunces: ['Fraunces', 'Georgia', 'serif'],
+        geist: ['Geist', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         tightest: '-0.04em',

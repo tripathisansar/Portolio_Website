@@ -1,266 +1,391 @@
-import { Scramble } from '../../components/Scramble'
-import { RevealWords } from '../../components/RevealWords'
-import { CaseStudyNav } from '../../components/CaseStudyNav'
+import { Link } from 'react-router-dom'
 
-const itinerary = [
-  { day: 'Day 01', loc: 'Kathmandu → Lukla', alt: '2,860 m', body: 'Mountain flight at first light. Acclimatization walk to Phakding along the Dudh Koshi.' },
-  { day: 'Day 03', loc: 'Namche Bazaar', alt: '3,440 m', body: 'Rest day. Hike up to the Everest View Hotel for the first sight of the peak.' },
-  { day: 'Day 06', loc: 'Tengboche', alt: '3,860 m', body: 'Through rhododendron forest to the monastery. Evening puja with the resident monks.' },
-  { day: 'Day 09', loc: 'Lobuche', alt: '4,940 m', body: 'Past the Khumbu memorials. Slow approach as oxygen drops below 60%.' },
-  { day: 'Day 12', loc: 'Everest Base Camp', alt: '5,364 m', body: 'Arrival on the glacier. Two hours at the icefall before descent to Gorak Shep.' },
-  { day: 'Day 14', loc: 'Kala Patthar · Sunrise', alt: '5,545 m', body: 'Pre-dawn ascent. Highest point of the trek; the only place where Everest stops hiding.' },
+type ShotData = {
+  src: string
+  w: number
+  h: number
+  label: string
+  caption: string
+}
+
+type Chapter = {
+  num: string
+  name: string
+  line: string
+  shots: ShotData[]
+}
+
+const meta = [
+  { k: 'Client', v: 'Nepal Nexus · Kathmandu' },
+  { k: 'Year', v: '2025' },
+  { k: 'Discipline', v: 'Brand & website' },
+  { k: 'Scope', v: 'Marketing site · CMS' },
 ]
 
-const peaks = [
-  { name: 'Everest', alt: '8,849' },
-  { name: 'Lhotse', alt: '8,516' },
-  { name: 'Cho Oyu', alt: '8,188' },
-  { name: 'Ama Dablam', alt: '6,812' },
+const chapters: Chapter[] = [
+  {
+    num: '01',
+    name: 'Home',
+    line: 'One unbroken scroll that earns the inquiry — founder, routes, process and a planner, paced like a magazine.',
+    shots: [
+      {
+        src: '/work/nepalnexus/home-founder.jpg',
+        w: 2000,
+        h: 1331,
+        label: 'Home — the founder',
+        caption:
+          'The scroll opens on the founder: one portrait, three decades of guiding, and a name set large in Fraunces beside a saffron caption card.',
+      },
+      {
+        src: '/work/nepalnexus/home-treks.jpg',
+        w: 2000,
+        h: 1843,
+        label: 'Home — signature routes',
+        caption:
+          'Featured routes as cards — altitude, grade and season surfaced on the face of each one, every card a door into a deeper page.',
+      },
+      {
+        src: '/work/nepalnexus/home-howitworks.jpg',
+        w: 2000,
+        h: 853,
+        label: 'Home — how it works',
+        caption:
+          'A dark band interrupts the parchment scroll: five numbered steps, threaded on a single hairline, from first message to arrival.',
+      },
+      {
+        src: '/work/nepalnexus/home-planner.jpg',
+        w: 2000,
+        h: 1113,
+        label: 'Home — the planner',
+        caption:
+          'The inquiry is staged as a conversation — a chat mock that reframes a form as the start of a 48-hour reply.',
+      },
+    ],
+  },
+  {
+    num: '02',
+    name: 'Treks',
+    line: 'The route index — every Himalayan trek the company runs, held in one editorial grid.',
+    shots: [
+      {
+        src: '/work/nepalnexus/treks-intro.jpg',
+        w: 2000,
+        h: 565,
+        label: 'Treks — the index',
+        caption:
+          'The catalogue opens on the house heading style — a dark line closed by a lighter saffron clause, the device repeated on every page.',
+      },
+      {
+        src: '/work/nepalnexus/treks-grid.jpg',
+        w: 2000,
+        h: 2100,
+        label: 'Treks — the catalogue',
+        caption:
+          'Six routes in one measured grid; the white card and Fraunces title hold steady whether the photograph behind is bright snow or dark rock.',
+      },
+    ],
+  },
+  {
+    num: '03',
+    name: 'Trek page',
+    line: 'A single expedition, page-deep — a cinematic hero, the walk in long form, and a day-by-day itinerary.',
+    shots: [
+      {
+        src: '/work/nepalnexus/trek-hero.jpg',
+        w: 2000,
+        h: 1065,
+        label: 'Trek page — the hero',
+        caption:
+          'Each route opens full-bleed on its own mountain, the key figures — days, altitude, grade, price — laid across the foot of the image.',
+      },
+      {
+        src: '/work/nepalnexus/trek-overview.jpg',
+        w: 2000,
+        h: 1211,
+        label: 'Trek page — the walk',
+        caption:
+          'Route notes run in one readable column, with a sticky summary card that keeps the estimate and the inquiry in reach the whole way down.',
+      },
+      {
+        src: '/work/nepalnexus/trek-itinerary.jpg',
+        w: 2000,
+        h: 2115,
+        label: 'Trek page — day by day',
+        caption:
+          'A fourteen-day itinerary drawn from one content model — an altitude profile up top, every day expandable, the summit day flagged in saffron.',
+      },
+    ],
+  },
+  {
+    num: '04',
+    name: 'About',
+    line: 'Who Nepal Nexus are — thirty years of guiding, set as a quiet editorial spread.',
+    shots: [
+      {
+        src: '/work/nepalnexus/about-opening.jpg',
+        w: 2000,
+        h: 1794,
+        label: 'About — the founder',
+        caption:
+          'The About page gives the founder story its own spread: a single portrait set against unhurried Fraunces headlines.',
+      },
+      {
+        src: '/work/nepalnexus/about-certs.jpg',
+        w: 2000,
+        h: 707,
+        label: 'About — what we can confirm',
+        caption:
+          'A dark panel closes the page with a deliberately honest list — what the company will stand behind, experience over inflated claims.',
+      },
+    ],
+  },
+  {
+    num: '05',
+    name: 'Blog',
+    line: 'Field notes — route guides and seasonal advice that bring travellers in before they ask.',
+    shots: [
+      {
+        src: '/work/nepalnexus/blog-opening.jpg',
+        w: 2000,
+        h: 1422,
+        label: 'Blog — field notes',
+        caption:
+          'The journal index leads with the latest entry — a full-bleed photograph beside an editorial summary and a single read link.',
+      },
+      {
+        src: '/work/nepalnexus/blog-featured.jpg',
+        w: 2000,
+        h: 1371,
+        label: 'Blog — the planning guide',
+        caption:
+          'A slate promo panel anchors the index, carrying the cover mock of the planning guide the whole site quietly routes toward.',
+      },
+    ],
+  },
 ]
+
+const build = [
+  { k: 'Framework', v: 'Next.js · React · App Router' },
+  { k: 'Styling', v: 'Hand-built CSS system' },
+  { k: 'Type', v: 'Fraunces · Geist · JetBrains Mono' },
+  { k: 'Content', v: 'File-based content model' },
+  { k: 'Data', v: 'Supabase' },
+  { k: 'Images', v: 'sharp · AVIF / WebP' },
+]
+
+// running Fig. numbers across the whole showcase — computed once
+let figN = 0
+const numbered = chapters.map((ch) => ({
+  ...ch,
+  shots: ch.shots.map((s) => {
+    figN += 1
+    return { ...s, fig: String(figN).padStart(2, '0') }
+  }),
+}))
+
+function Shot({ src, w, h, label, caption, fig }: ShotData & { fig: string }) {
+  return (
+    <figure className="mt-16 first:mt-12 md:mt-24 md:first:mt-16">
+      <div className="overflow-hidden border border-[#15171a]/15 bg-white shadow-[0_30px_64px_-44px_rgba(21,23,26,0.5)]">
+        <img
+          src={src}
+          width={w}
+          height={h}
+          alt={`Nepal Nexus website — ${label}`}
+          loading="lazy"
+          decoding="async"
+          className="block h-auto w-full"
+        />
+      </div>
+      <figcaption className="mt-5 flex flex-col gap-2 md:flex-row md:items-baseline md:gap-8">
+        <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.26em] text-[#b56f1a]">
+          Fig. {fig} — {label}
+        </span>
+        <span className="max-w-xl text-[13px] leading-relaxed text-[#15171a]/60 md:text-sm">
+          {caption}
+        </span>
+      </figcaption>
+    </figure>
+  )
+}
 
 export function NepalNexusPage() {
   return (
-    <article className="relative">
-      <header
-        className="relative px-6 md:px-10 pt-32 md:pt-40 pb-20 md:pb-32 min-h-[78vh] flex flex-col justify-end overflow-hidden"
-        style={{
-          background:
-            'linear-gradient(180deg, rgba(141, 200, 211, 0.18) 0%, rgba(91, 143, 207, 0.12) 35%, rgba(5, 7, 13, 0.85) 100%)',
-        }}
-      >
-        <svg
-          className="absolute inset-x-0 bottom-0 w-full"
-          viewBox="0 0 1440 280"
-          preserveAspectRatio="none"
-          style={{ height: '40%' }}
-        >
-          <path
-            d="M0,280 L0,180 L120,80 L210,140 L320,40 L430,160 L540,90 L660,30 L780,130 L890,70 L1010,170 L1130,90 L1250,150 L1360,80 L1440,180 L1440,280 Z"
-            fill="rgba(5,7,13,0.85)"
-          />
-          <path
-            d="M0,280 L0,220 L160,160 L260,200 L380,120 L490,200 L610,150 L740,200 L860,150 L990,210 L1120,160 L1250,210 L1360,170 L1440,220 L1440,280 Z"
-            fill="rgba(5,7,13,0.95)"
-          />
-        </svg>
-
-        <div className="relative z-10 max-w-6xl">
-          <div className="font-mono text-[10px] uppercase tracking-widest2 text-frost-100/70 flex items-center gap-3">
-            <span className="block w-8 h-px bg-frost-100/40" />
-            Case study · 02 of 03 · 27°59′ N · 86°55′ E
-          </div>
-
-          <h1 className="mt-8 font-display font-light text-frost-50 text-[16vw] md:text-[10.5vw] lg:text-[8.4vw] leading-[0.92] tracking-tightest text-balance">
-            <RevealWords
-              wordDelay={45}
-              duration={950}
-              startDelay={150}
-              segments={[
-                { text: 'A trekking outfit\n' },
-                { text: 'with the routes to match.', className: 'text-frost-100/70' },
-              ]}
-            />
-          </h1>
-
-          <p className="mt-10 font-display text-frost-100 text-lg md:text-xl leading-snug max-w-2xl">
-            Brand and booking site for a Kathmandu-based outfitter running guided expeditions across the Khumbu, Annapurna, and Manaslu regions.
-          </p>
+    <article className="relative bg-[#f5f1e8] font-geist text-[#15171a]">
+      {/* ——— title ——— */}
+      <header className="px-6 pb-14 pt-36 md:px-10 md:pb-20 md:pt-44 lg:px-16">
+        <div className="flex items-center gap-4 font-mono text-[10px] uppercase tracking-[0.3em] text-[#b56f1a]">
+          <span className="h-px w-10 bg-[#15171a]/25" />
+          Case study · Brand &amp; website
         </div>
 
-        <div className="relative z-10 mt-16 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 border-t border-frost-100/15 pt-6">
-          {peaks.map((p) => (
-            <div key={p.name}>
-              <div className="font-display text-frost-50 text-2xl md:text-3xl tracking-tight">{p.alt}</div>
-              <div className="mt-1 font-mono text-[10px] uppercase tracking-widest2 text-frost-100/60">{p.name} · m</div>
+        <h1 className="mt-10 font-fraunces text-7xl leading-[0.95] tracking-tight text-[#15171a] md:mt-14 md:text-8xl lg:text-[9.5rem]">
+          Nepal Nexus
+        </h1>
+
+        <p className="mt-6 font-fraunces text-2xl italic text-[#b56f1a] md:text-3xl">
+          Private Nepal treks, planned with care.
+        </p>
+
+        <dl className="mt-14 grid grid-cols-2 gap-px border border-[#15171a]/12 bg-[#15171a]/12 md:mt-20 md:grid-cols-4">
+          {meta.map((m) => (
+            <div key={m.k} className="bg-[#f5f1e8] px-5 py-5">
+              <dt className="font-mono text-[10px] uppercase tracking-[0.26em] text-[#b56f1a]">
+                {m.k}
+              </dt>
+              <dd className="mt-2 font-fraunces text-lg text-[#15171a] md:text-xl">{m.v}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       </header>
 
-      <section className="relative px-6 md:px-10 py-24 md:py-32">
-        <div className="grid md:grid-cols-12 gap-12 md:gap-16">
-          <div className="md:col-span-4">
-            <span className="label-tag">/ The brief</span>
-          </div>
-          <div className="md:col-span-8 space-y-6">
-            <p className="font-display text-frost-50 text-2xl md:text-3xl leading-snug font-light tracking-tight">
-              <RevealWords
-                wordDelay={30}
-                duration={780}
-                text="The client guides clients who plan trips a year out and ask harder questions than most outfitters answer."
-              />
-            </p>
-            <p className="text-frost-100/80 leading-relaxed max-w-2xl">
-              The brief was to look as serious as the routes. Long-form expedition pages, real altitude profiles, and an inquiry flow that respects the fact that an EBC trek is a six-month decision, not an impulse booking.
-            </p>
-            <p className="text-frost-100/80 leading-relaxed max-w-2xl">
-              We also rebuilt the visual identity from the ground up — wordmark, motion principles, photographic direction. Everything was held against one question: would this still feel right at 5,000 metres in February.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative px-6 md:px-10 py-16 md:py-20 border-t border-frost-300/10">
-        <div className="flex items-end justify-between mb-8">
-          <span className="label-tag">/ Routes — primary view</span>
-          <span className="hidden md:inline-block font-mono text-[10px] uppercase tracking-widest2 text-frost-300/50">
-            EBC · 14 days
+      {/* ——— cover: the live home page ——— */}
+      <div className="border-y border-[#15171a]/12">
+        <img
+          src="/work/nepalnexus/home-hero.jpg"
+          width={2000}
+          height={1204}
+          alt="Nepal Nexus website — the home page in full"
+          className="block h-auto w-full"
+        />
+      </div>
+      <div className="px-6 pt-5 md:px-10 lg:px-16">
+        <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
+          <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-[#b56f1a]">
+            nepalnexus.com — the home page
+          </span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-[#15171a]/40">
+            Brand &amp; marketing site · 2025
           </span>
         </div>
+      </div>
 
-        <div
-          className="relative h-[420px] md:h-[520px] border border-frost-300/15 overflow-hidden"
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(141, 200, 211, 0.08) 0%, rgba(91, 143, 207, 0.04) 50%, #05070d 100%)',
-          }}
-        >
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 520" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="route-line" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="rgba(141,200,211,0.85)" />
-                <stop offset="100%" stopColor="rgba(141,200,211,0.2)" />
-              </linearGradient>
-            </defs>
-
-            {Array.from({ length: 14 }).map((_, i) => (
-              <line
-                key={i}
-                x1={i * (1200 / 14)}
-                y1={0}
-                x2={i * (1200 / 14)}
-                y2={520}
-                stroke="rgba(199, 215, 240, 0.04)"
-                strokeWidth={1}
-              />
-            ))}
-
-            <path
-              d="M40,420 L130,400 L220,360 L310,330 L400,310 L490,260 L580,250 L670,220 L760,200 L850,150 L940,130 L1030,90 L1120,140 L1170,100"
-              fill="none"
-              stroke="url(#route-line)"
-              strokeWidth={2}
-              strokeDasharray="6 4"
-            />
-
-            {[
-              { x: 40, y: 420, name: 'Lukla', alt: '2,860' },
-              { x: 220, y: 360, name: 'Namche', alt: '3,440' },
-              { x: 400, y: 310, name: 'Tengboche', alt: '3,860' },
-              { x: 580, y: 250, name: 'Dingboche', alt: '4,410' },
-              { x: 760, y: 200, name: 'Lobuche', alt: '4,940' },
-              { x: 940, y: 130, name: 'Gorak Shep', alt: '5,164' },
-              { x: 1120, y: 140, name: 'EBC', alt: '5,364' },
-              { x: 1170, y: 100, name: 'Kala Patthar', alt: '5,545' },
-            ].map((p) => (
-              <g key={p.name}>
-                <circle cx={p.x} cy={p.y} r={4} fill="#f5f7fb" />
-                <text
-                  x={p.x}
-                  y={p.y - 14}
-                  fill="#e7ecf5"
-                  fontSize={10}
-                  fontFamily='"JetBrains Mono", monospace'
-                  letterSpacing={2}
-                  textAnchor="middle"
-                >
-                  {p.name.toUpperCase()}
-                </text>
-                <text
-                  x={p.x}
-                  y={p.y + 18}
-                  fill="rgba(148, 163, 192, 0.7)"
-                  fontSize={9}
-                  fontFamily='"JetBrains Mono", monospace'
-                  letterSpacing={2}
-                  textAnchor="middle"
-                >
-                  {p.alt} M
-                </text>
-              </g>
-            ))}
-          </svg>
-
-          <div className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest2 text-frost-300/50">
-            Elevation profile · m a.s.l.
-          </div>
-          <div className="absolute bottom-4 right-4 font-mono text-[10px] uppercase tracking-widest2 text-frost-300/50">
-            Khumbu · Spring window
-          </div>
-        </div>
-      </section>
-
-      <section className="relative px-6 md:px-10 py-24 md:py-32 border-t border-frost-300/10">
-        <div className="grid md:grid-cols-12 gap-12 mb-16">
-          <div className="md:col-span-4">
-            <span className="label-tag">/ Sample itinerary</span>
-            <h2 className="mt-5 font-display font-light text-frost-50 text-4xl md:text-5xl leading-[0.95] tracking-tight">
-              <Scramble text={'Fourteen days,\nin order.'} duration={900} />
-            </h2>
-          </div>
-          <div className="md:col-span-8 self-end">
-            <p className="text-frost-100/75 leading-relaxed max-w-xl">
-              Every itinerary on the site renders from the same content model: ordered days, altitude, location, and a few lines about what happens. Easy for the team to update; impossible to break.
+      {/* ——— overview ——— */}
+      <section className="px-6 py-24 md:px-10 md:py-36 lg:px-16">
+        <div className="max-w-3xl">
+          <p className="font-fraunces text-3xl leading-[1.22] md:text-[2.65rem]">
+            <span className="text-[#15171a]">
+              Nepal Nexus plan serious treks for travellers who decide a year out.
+            </span>{' '}
+            <span className="font-light text-[#b56f1a]">
+              The website had to read the same way — warm, unhurried, built to be trusted.
+            </span>
+          </p>
+          <div className="mt-10 max-w-2xl space-y-5 text-[15px] leading-relaxed text-[#15171a]/65 md:text-base">
+            <p>
+              We designed and built the site end to end — the brand, a long marketing home, a
+              full route catalogue, deep expedition pages and a journal, all set on warm
+              parchment in a Fraunces and Geist type system.
+            </p>
+            <p>
+              Every trek and journal entry is a file — ordered itinerary days, altitude, grade,
+              season. The team adds a route or rewrites a price by editing content, and the
+              cards, the altitude profiles and the page redraw themselves.
             </p>
           </div>
         </div>
-
-        <ol className="border-t border-frost-300/10">
-          {itinerary.map((s) => (
-            <li
-              key={s.day}
-              className="grid md:grid-cols-12 gap-4 md:gap-8 py-7 md:py-8 border-b border-frost-300/10 group"
-            >
-              <div className="md:col-span-2 font-mono text-[11px] uppercase tracking-widest2 text-frost-300/60">
-                {s.day}
-              </div>
-              <div className="md:col-span-3">
-                <div className="font-display text-frost-50 text-xl md:text-2xl tracking-tight">{s.loc}</div>
-              </div>
-              <div className="md:col-span-2 font-mono text-[11px] uppercase tracking-widest2 text-glacier-400">
-                {s.alt}
-              </div>
-              <div className="md:col-span-5 text-frost-100/75 leading-relaxed text-[15px] max-w-prose">
-                {s.body}
-              </div>
-            </li>
-          ))}
-        </ol>
       </section>
 
-      <section className="relative px-6 md:px-10 py-24 md:py-28 border-t border-frost-300/10">
-        <div className="grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-7">
-            <blockquote className="border-l-2 border-frost-300/30 pl-6 py-2">
-              <p className="font-display text-frost-50 text-2xl md:text-3xl leading-snug font-light italic">
-                &ldquo;The new site is the first piece of marketing we&apos;ve had that the senior guides actually point clients to. Most outfitter websites lose them at the booking form. This one finishes the conversation.&rdquo;
-              </p>
-              <footer className="mt-5 font-mono text-[10px] uppercase tracking-widest2 text-frost-300/60">
-                — Operations lead, NepalNexus
-              </footer>
-            </blockquote>
+      {/* ——— page-by-page showcase ——— */}
+      {numbered.map((ch) => (
+        <section key={ch.num} className="px-6 pb-24 md:px-10 md:pb-36 lg:px-16">
+          <div className="border-t border-[#15171a]/15 pt-10 md:pt-14">
+            <div className="flex items-baseline gap-5">
+              <span className="font-mono text-[11px] uppercase tracking-[0.26em] text-[#b56f1a]">
+                {ch.num}
+              </span>
+              <h2 className="font-fraunces text-5xl leading-none text-[#15171a] md:text-7xl">
+                {ch.name}
+              </h2>
+            </div>
+            <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-[#15171a]/60 md:text-base">
+              {ch.line}
+            </p>
           </div>
-          <div className="md:col-span-5 md:border-l md:border-frost-300/10 md:pl-12 space-y-5">
-            <span className="label-tag">/ Build notes</span>
-            <ul className="space-y-3 font-mono text-[11px] uppercase tracking-widest2 text-frost-300/70">
-              {[
-                'Next.js · Sanity CMS',
-                'Mapbox GL · custom style',
-                'GSAP scroll telemetry',
-                'Cal.com inquiry routing',
-                'Vercel · ISR for itineraries',
-              ].map((t) => (
-                <li key={t} className="flex items-baseline gap-3">
-                  <span className="text-frost-300/40">→</span>
-                  <span>{t}</span>
-                </li>
+
+          <div className="mx-auto max-w-[1180px]">
+            {ch.shots.map((s) => (
+              <Shot key={s.src} {...s} />
+            ))}
+          </div>
+        </section>
+      ))}
+
+      {/* ——— build ——— */}
+      <section className="bg-[#15171a] px-6 py-24 text-[#f5f1e8] md:px-10 md:py-32 lg:px-16">
+        <div className="flex items-baseline gap-5">
+          <span className="font-mono text-[11px] uppercase tracking-[0.26em] text-[#d68a2b]">
+            06
+          </span>
+          <h2 className="font-fraunces text-5xl leading-none text-[#f5f1e8] md:text-7xl">
+            The build
+          </h2>
+        </div>
+
+        <div className="mt-10 grid gap-12 md:mt-14 md:grid-cols-12">
+          <div className="md:col-span-7">
+            <div className="max-w-xl space-y-5 text-[15px] leading-relaxed text-[#f5f1e8]/65 md:text-base">
+              <p>
+                The site is a Next.js application — React with server components on the App
+                Router, rendered statically so every route page loads fast and stays fully
+                crawlable.
+              </p>
+              <p>
+                There is no UI kit and no Tailwind. The interface runs on a hand-written CSS
+                design system: a small set of custom properties for the parchment, ink and
+                saffron palette, and one Fraunces / Geist / JetBrains Mono stack — so every page
+                speaks in a single voice.
+              </p>
+              <p>
+                Treks and journal posts are a file-based content model; Supabase backs the admin
+                tools and the inquiry pipeline. Photography is pre-processed through a sharp
+                pipeline into AVIF and WebP.
+              </p>
+            </div>
+          </div>
+
+          <div className="md:col-span-5">
+            <dl className="border-t border-[#f5f1e8]/15">
+              {build.map((b) => (
+                <div
+                  key={b.k}
+                  className="flex items-baseline justify-between gap-6 border-b border-[#f5f1e8]/15 py-3.5"
+                >
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#d68a2b]">
+                    {b.k}
+                  </dt>
+                  <dd className="text-right font-fraunces text-[15px] text-[#f5f1e8] md:text-base">
+                    {b.v}
+                  </dd>
+                </div>
               ))}
-            </ul>
+            </dl>
           </div>
         </div>
       </section>
 
-      <CaseStudyNav current="nepalnexus" />
+      {/* ——— next ——— */}
+      <footer className="bg-[#15171a] px-6 pb-16 pt-2 text-[#f5f1e8] md:px-10 md:pb-24 lg:px-16">
+        <div className="flex flex-col gap-10 border-t border-[#f5f1e8]/15 pt-16 md:flex-row md:items-end md:justify-between">
+          <div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-[#d68a2b]">
+              Next case study
+            </span>
+            <Link to="/work/envelope" className="group mt-3 block">
+              <span className="font-fraunces text-4xl text-[#f5f1e8] transition-colors group-hover:text-[#d68a2b] md:text-6xl">
+                Envelope
+              </span>
+            </Link>
+          </div>
+          <Link
+            to="/#work"
+            className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.26em] text-[#f5f1e8]/55 transition-colors hover:text-[#f5f1e8]"
+          >
+            <span className="h-px w-6 bg-[#f5f1e8]/30" />
+            All work
+          </Link>
+        </div>
+      </footer>
     </article>
   )
 }
