@@ -28,6 +28,8 @@ export default {
         display: ['"Inter Tight"', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        fraunces: ['Fraunces', 'Georgia', 'serif'],
+        geist: ['Geist', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         tightest: '-0.04em',
